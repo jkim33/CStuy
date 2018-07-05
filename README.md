@@ -1,5 +1,5 @@
-# CStuy
-## Notes and Code from Jason Kim
+# CStuy 2018
+## Notes & Code from Jason Kim
 
 ## ABOUT CSTUY
 CStuy is a program in which students learn using a program called Processing. Java is used for syntax, although the visual aid with Processing is the main focus. 
