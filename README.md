@@ -4,8 +4,10 @@
 ## PROCESSING
 <p>
 Processing gives coders an easy way to code visual pieces of work. Whether that be a simulation, game, or algorithm.
-Download Link: https://processing.org/download/ 
-Reference Link: https://processing.org/reference/
+</p>
+<p>
+- Download Link: https://processing.org/download/ 
+- Reference Link: https://processing.org/reference/
 </p>
 
 ## ABOUT CSTUY
