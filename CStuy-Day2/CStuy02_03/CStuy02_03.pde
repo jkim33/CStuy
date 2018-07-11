@@ -58,12 +58,12 @@ void setPixels() {
 void useKernel() {
   for (int i = 1; i < PH-1; i++) {
     for (int k = 1; k < PW-1; k++) {
-      newPixels2d[i][k] = convulate(i,k);
+      newPixels2d[i][k] = convulute(i,k);
     }
   }
 }
 
-int convulate(int x, int y) {
+int convulute(int x, int y) {
   float red = 0;
   float green = 0;
   float blue = 0;

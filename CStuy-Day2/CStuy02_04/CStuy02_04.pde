@@ -28,33 +28,35 @@ void setup() {
     cam.start();
   }
   textSize(36);
-  text("1) Identity", 655, 100);
-  text("2) Blur", 655, 140);
-  text("3) Edge", 655, 180);
-  text("    Detection", 655, 220);
-  text("4) Sharpen", 655, 260);
+  text("1) Identity", 655, 110);
+  text("2) Blur", 655, 150);
+  text("3) Edge", 655, 190);
+  text("    Detection", 655, 230);
+  text("4) Sharpen", 655, 270);
+  text("No Cameras Available", 125, 175);
+  text("640x360 is required!", 125, 215);
 }
 
 void draw() {
   if (cam.available() == true) {
     cam.read();
+    image(cam, 0, 0);
+    PH = cam.height;
+    PW = cam.width;
+    pixels2d = new int[PH][PW];
+    newPixels2d = new int[PH][PW];
+    if (PH > height) {
+      PH = height;
+    }
+    if (PW > width) {
+      PW = width;
+    }
+    loadPixels();
+    setPixels();
+    useKernel();
+    changePixels();
+    updatePixels();
   }
-  image(cam, 0, 0);
-  PH = cam.height;
-  PW = cam.width;
-  pixels2d = new int[PH][PW];
-  newPixels2d = new int[PH][PW];
-  if (PH > height) {
-    PH = height;
-  }
-  if (PW > width) {
-    PW = width;
-  }
-  loadPixels();
-  setPixels();
-  useKernel();
-  changePixels();
-  updatePixels();
 }
 
 void setPixels() {
@@ -120,7 +122,7 @@ void keyPressed() {
 //kernel = new float[][] { {1.0/9.0, 1.0/9.0 , 1.0/9.0}, {1.0/9.0, 1.0/9.0, 1.0/9.0}, {1.0/9.0, 1.0/9.0, 1.0/9.0} };
 
 //Edge Detection
-//kernel = new float[][] { {-1,-1,-1} , {-1,8,-1}, {-1,-1,-1} };
+//kernel = new float[][] { {-1,-1,-1} , {-1,9,-1}, {-1,-1,-1} };
 
 //Sharpen
 //kernel = new float[][] { {0,-1,0}, {-1,5,-1} , {0,-1,0} };
