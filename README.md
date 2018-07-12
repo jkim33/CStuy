@@ -15,3 +15,16 @@ Jason will take notes (hopefully) and share code (once again, hopefully) so othe
 - Basic Java
 - Window, Colors, Shapes
 - Processing Format
+### Day Two
+- Cicles/Animation
+- Bouncing/Physics
+- Kernel Image Processing
+- Webcam Implementation
+### Day Three
+- Blue Screen
+### Day Four
+- Pong
+- Short-Circuiting
+### Day Five
+- Chain Reaction Game
+- States
