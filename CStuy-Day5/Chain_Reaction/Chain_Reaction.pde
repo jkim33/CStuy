@@ -22,24 +22,21 @@ void setup() {
   background(0);
   stroke(255);
   strokeWeight(5);
-  line(0,0,width,0);
-  line(0,0,0,height);
-  line(width,0,width,height);
-  line(0,height,width,height);
-  line(0,100,width,100);
+  line(0, 0, width, 0);
+  line(0, 0, 0, height);
+  line(width, 0, width, height);
+  line(0, height, width, height);
+  line(0, 100, width, 100);
 }
 
 void draw() {
-  if(level>10) {
-    finishedGame();
-  }
   background(0);
   strokeWeight(5);
-  line(0,0,width,0);
-  line(0,0,0,height);
-  line(width,0,width,height);
-  line(0,height,width,height);
-  line(0,100,width,100);
+  line(0, 0, width, 0);
+  line(0, 0, 0, height);
+  line(width, 0, width, height);
+  line(0, height, width, height);
+  line(0, 100, width, 100);
   textSize(36);
   textAlign(LEFT);
   text("TOTAL SCORE: " + score, 5, 45 );
@@ -47,6 +44,12 @@ void draw() {
   textAlign(RIGHT);
   text("LEVEL: " + level, width-5, 45);
   text("LEVEL GOAL: " + pass, width-5, 90);
+  if (finished) {
+    delay(100);
+    level = 10;
+    finishedGame();
+    return;
+  }
   if (paused) {
     pause();
     return;
@@ -90,6 +93,9 @@ void changeState(Ball b) {
 void mouseClicked() {
   if (finished) {
     finished = false;
+    level = 1;
+    score = 0;
+    pass = 1000;
     return;
   }
   if (stop) {
@@ -136,11 +142,11 @@ void check() {
     if (current_level_score >= pass) {
       level++;
       score+=current_level_score;
-      if(level > 10) {
-        level = 1;
-        score = 0;
-      }
     }
+  }
+  if (level>10) {
+    finished = true;
+    return;
   }
 }
 
@@ -192,9 +198,8 @@ void pause() {
 }
 
 void finishedGame() {
-  if (level > 10) {
-    textSize(52);
+  textSize(52);
   textAlign(CENTER);
-  text("Done!",width/2,height/2);
-  }
+  text("All Levels Completed!", width/2, height/2 - 35);
+  text("FINAL SCORE: " + score, width/2, height/2 + 35);
 }
