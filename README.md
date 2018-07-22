@@ -28,3 +28,15 @@ Jason will take notes (hopefully) and share code (once again, hopefully) so othe
 ### Day Five
 - Chain Reaction Game
 - States
+### Day Six
+- PVector Physics
+### Day Seven
+- Markov Chains
+- Text Analyzing
+### Day Eight
+- Collisions
+- Physics
+### Days Nine-Eleven
+- Markov Chains with Image Processing
+### Day Twelve
+- Blob Detection
