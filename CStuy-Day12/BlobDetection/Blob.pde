@@ -63,4 +63,11 @@ class Blob {
       return false;
     }
   }
+
+  boolean isWithin(float x, float y) {
+    if (x >= minx && x <= maxx && y >= miny && y <= maxy) {
+      return true;
+    }
+    return false;
+  }
 }

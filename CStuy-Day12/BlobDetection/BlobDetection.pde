@@ -3,18 +3,22 @@ import processing.video.*;
 Capture video;
 
 color trackColor; 
-float threshold = 10;
+float threshold = 20;
 float distThreshold = 50;
+int score;
+
+int x, y;
 
 ArrayList<Blob> blobs = new ArrayList<Blob>();
 
 void setup() {
   size(640, 480);
   String[] cameras = Capture.list();
-  printArray(cameras);
   video = new Capture(this, 640, 480);
   video.start();
   trackColor = color(255, 0, 0);
+  score = 0;
+  change();
 }
 
 void captureEvent(Capture video) {
@@ -41,9 +45,31 @@ void draw() {
   video.loadPixels();
   image(video, 0, 0);
 
+  make();
   blobs.clear();
+  blobDisplay();
+  check();
+
+  textAlign(RIGHT);
+  textSize(26);
+  fill(255,0,0);
+  text("Score: " + score, width-10, 25);
+}
 
 
+// Custom distance functions w/ no square root for optimization
+float distSq(float x1, float y1, float x2, float y2) {
+  float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
+  return d;
+}
+
+
+float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
+  float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) +(z2-z1)*(z2-z1);
+  return d;
+}
+
+void blobDisplay() {
   // Begin loop to walk through every pixel
   for (int x = 0; x < video.width; x++ ) {
     for (int y = 0; y < video.height; y++ ) {
@@ -83,24 +109,25 @@ void draw() {
       b.show();
     }
   }
-
-  textAlign(RIGHT);
-  fill(0);
-  text("distance threshold: " + distThreshold, width-10, 25);
-  text("color threshold: " + threshold, width-10, 50);
 }
 
-
-// Custom distance functions w/ no square root for optimization
-float distSq(float x1, float y1, float x2, float y2) {
-  float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
-  return d;
+void change() {
+  x = int(random(width));
+  y = int(random(height));
 }
 
+void make() {
+  fill(255, 0, 0);
+  ellipse(x, y, 40, 40);
+}
 
-float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
-  float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) +(z2-z1)*(z2-z1);
-  return d;
+void check() {
+  for (Blob b : blobs) {
+    if (b.isWithin(x, y)) {
+      score++;
+      change();
+    }
+  }
 }
 
 void mousePressed() {
