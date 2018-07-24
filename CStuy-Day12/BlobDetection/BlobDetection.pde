@@ -3,7 +3,7 @@ import processing.video.*;
 Capture video;
 
 color trackColor; 
-float threshold = 20;
+float threshold = 50;
 float distThreshold = 50;
 int score;
 
@@ -13,7 +13,6 @@ ArrayList<Blob> blobs = new ArrayList<Blob>();
 
 void setup() {
   size(640, 480);
-  String[] cameras = Capture.list();
   video = new Capture(this, 640, 480);
   video.start();
   trackColor = color(255, 0, 0);
@@ -36,9 +35,6 @@ void keyPressed() {
   } else if (key == 'x') {
     threshold-=5;
   }
-
-
-  println(distThreshold);
 }
 
 void draw() {
@@ -51,9 +47,11 @@ void draw() {
   check();
 
   textAlign(RIGHT);
-  textSize(26);
-  fill(255,0,0);
-  text("Score: " + score, width-10, 25);
+  textSize(32);
+  fill(0);
+  text("Score: " + score, width-10, 32);
+  text("Threshold: " + threshold, width-10, 64);
+  text("Dist-Threshold: " + distThreshold, width-10, 96);
 }
 
 
