@@ -1,0 +1,5 @@
+My name is Jason Kim and I am now a Rising-Senior in Stuyvesant High School. As you can tell, I am both a musician and a programmer. I have been playing music for around 11 years, and I have been programming for around 2 years.
+
+This website was made as a side-project in the summer of 2018. I wanted to see the process of making a "professional" website, so I decided to take on the challenge of making one for myself. I used resources provided by W3Schools, who have a great template for CSS. This boost really made the process easier. In the future, I plan on making my own CSS template to use.
+
+Below, in the footer, I have placed links for YouTube, FaceBook, Instagram, and GitHub. I haven't uploaded much on the YouTube Channel, but maybe that will change with new music covers. FaceBook is my main method of communication. Instagram is a place for some cool pictures (obviously), and I may start posting some little snippets of music or magic. GitHub is where I hold most of my important projects.
